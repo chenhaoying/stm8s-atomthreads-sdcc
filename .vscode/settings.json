@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stm8s.h": "c",
+        "atom.h": "c",
+        "atomtimer.h": "c",
+        "atomport.h": "c",
+        "stm8s_conf.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}
