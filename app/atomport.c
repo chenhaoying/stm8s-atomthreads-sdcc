@@ -241,9 +241,12 @@ void archInitSystemTickTimer ( void )
 {
     /* Reset TIM1 */
     TIM1_DeInit();
-
+    /* HES_VLAUE = 8MHz, 8,000,000Hz / 10,000 / 8 = 100Hz */
     /* Configure a 10ms tick */
-    TIM1_TimeBaseInit(10000, TIM1_COUNTERMODE_UP, 1, 0);
+    TIM1_TimeBaseInit((10000-1), TIM1_COUNTERMODE_UP, 7, 0);
+
+    /* Default system clock frequency is 2MHz, without "HSE_CLK_Init();" in main */
+//   TIM1_TimeBaseInit((10000-1), TIM1_COUNTERMODE_UP, 1, 0);
 
     /* Generate an interrupt on timer count overflow */
     TIM1_ITConfig(TIM1_IT_UPDATE, ENABLE);
